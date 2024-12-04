@@ -16,8 +16,8 @@ body {
 
 /* Contêiner Principal */
 .container {
-  width: 800px; /* Largura padrão para telas maiores */
-  max-width: 95%; /* Limita largura para telas menores */
+  width: 800px; /* Largura fixa */
+  max-width: 100%; /* Limita a largura em telas menores */
   margin: 20px auto; /* Centralizado horizontalmente */
   padding: 20px;
   background: #444;
@@ -30,41 +30,35 @@ body {
 h1 {
   text-align: center;
   color: #ffffff;
-  font-size: clamp(1.5rem, 2vw, 2.5rem); /* Tamanho de fonte responsivo */
 }
 
 /* Barra de Pesquisa */
 .search-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Espaça elementos */
   margin-bottom: 20px;
-  width: 100%; /* Ajusta largura à tela */
-  max-width: 600px; /* Limita o tamanho em telas maiores */
+  width: 500px; /* Largura reduzida */
   margin: 0 auto 20px; /* Centraliza horizontalmente */
-  flex-wrap: wrap; /* Permite quebrar em telas menores */
 }
 
 input[type="text"] {
-  flex: 1;
-  min-width: 200px;
+  width: calc(100% - 130px); /* Ajusta largura com margem para o botão */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #555;
   color: #ffffff;
-  font-size: 1rem;
 }
 
 button {
   width: 100px; /* Largura fixa */
   padding: 10px;
-  margin-left: 10px; /* Espaço entre botão e campo */
+  margin-left: 10px; /* Adiciona espaço entre o botão e o campo */
   border: none;
   background-color: #28a745;
   color: white;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 button:hover {
@@ -87,9 +81,9 @@ button:hover {
   padding: 10px;
   border-radius: 8px;
   color: #ffffff;
-  flex-wrap: wrap; /* Permite reorganizar em telas menores */
 }
 
+/* Pôster do Filme */
 .movie-poster {
   width: 100px; /* Largura fixa */
   height: 150px; /* Altura fixa */
@@ -98,12 +92,13 @@ button:hover {
   object-fit: cover; /* Ajusta imagem ao espaço definido */
 }
 
+/* Informações do Filme */
 .movie-info {
   flex: 1;
   min-width: 200px; /* Define largura mínima para evitar colapsos */
-  font-size: 0.9rem; /* Tamanho da fonte responsivo */
 }
 
+/* Título do Filme */
 .movie-title {
   margin: 0;
   font-size: 1.2em;
@@ -111,6 +106,7 @@ button:hover {
   white-space: nowrap; /* Mantém tudo em uma linha */
   overflow: hidden; /* Previne estouro */
   text-overflow: ellipsis; /* Adiciona "..." */
+  width: 600px; /* Largura fixa */
 }
 
 /* Paginação */
@@ -121,6 +117,7 @@ button:hover {
   flex-wrap: wrap;
 }
 
+/* Botões de Paginação */
 .page-button {
   padding: 10px 20px;
   margin: 5px;
@@ -132,11 +129,8 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 
-.page-button.active {
-  background-color: #28a745; /* Cor para página ativa */
-  color: #fff;
-  border: 2px solid #218838;
-  font-weight: bold;
+.page-button:hover:not(:disabled) {
+  background-color: #0056b3;
 }
 
 .page-button:disabled {
@@ -144,30 +138,29 @@ button:hover {
   cursor: not-allowed;
 }
 
-.page-button:hover:not(:disabled) {
-  background-color: #0056b3;
+/* Botão da Página Ativa */
+.page-button.active {
+  background-color: #28a745; /* Cor diferente para destacar a página ativa */
+  color: #fff;
+  border: 2px solid #218838;
+  font-weight: bold;
 }
 
 /* Responsividade */
-
-/* Telas menores que 768px (Tablets e celulares grandes) */
-@media (max-width: 768px) {
-  .container {
-    padding: 15px;
-  }
-
+@media (max-width: 600px) {
   .search-container {
     flex-direction: column; /* Alinha verticalmente */
+    width: 100%; /* Ajusta para ocupar toda a largura disponível */
   }
 
   input[type="text"] {
-    width: 100%;
-    margin-bottom: 10px; /* Espaço entre input e botão */
+    width: 100%; /* Preenche o espaço */
+    margin-bottom: 10px; /* Espaçamento entre input e botão */
   }
 
   button {
-    width: 100%; /* Ocupa toda a largura em telas menores */
-    margin-left: 0; /* Remove espaço lateral */
+    width: 100%; /* Botão ocupa toda a largura em telas pequenas */
+    margin-left: 0; /* Remove margem lateral */
   }
 
   .movie-item {
@@ -187,33 +180,5 @@ button:hover {
   .movie-title {
     font-size: 1em; /* Reduz o tamanho da fonte */
     width: 100%; /* Ajusta largura ao contêiner */
-  }
-}
-
-/* Telas menores que 480px (Celulares pequenos) */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem; /* Reduz o título */
-  }
-
-  .container {
-    padding: 10px;
-  }
-
-  .movie-poster {
-    width: 60px; /* Reduz ainda mais tamanho */
-    height: 90px;
-  }
-
-  .movie-info {
-    font-size: 0.8rem; /* Reduz tamanho da fonte */
-  }
-
-  .pagination {
-    flex-direction: column; /* Alinha botões verticalmente */
-  }
-
-  .page-button {
-    width: 100%; /* Ocupa toda a largura */
   }
 }
