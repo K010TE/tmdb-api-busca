@@ -1,4 +1,6 @@
 /* src/App.css */
+
+/* Estilos Globais */
 body {
   font-family: Arial, sans-serif;
   background-color: #333;
@@ -9,36 +11,45 @@ body {
   align-items: center;
   min-height: 100vh;
   color: #f0f0f0;
+  overflow-y: scroll; /* Força barra de rolagem para evitar saltos */
 }
 
+/* Contêiner Principal */
 .container {
-  max-width: 800px;
-  margin: 20px;
+  width: 800px; /* Largura fixa */
+  max-width: 100%; /* Limita a largura em telas menores */
+  margin: 20px auto; /* Centralizado horizontalmente */
   padding: 20px;
   background: #444;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
+  overflow: hidden; /* Previne estouro do conteúdo */
 }
 
+/* Título Principal */
 h1 {
   text-align: center;
   color: #ffffff;
 }
 
+/* Barra de Pesquisa */
 .search-container {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  flex-wrap: wrap; /* Ajusta elementos em telas menores */
 }
 
 input[type="text"] {
-  width: calc(100% - 100px);
+  width: calc(100% - 110px); /* Ajusta dinamicamente com margem para o botão */
   padding: 10px;
   margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #555;
   color: #ffffff;
+  flex: 1;
+  min-width: 200px;
 }
 
 button {
@@ -48,19 +59,23 @@ button {
   color: white;
   border-radius: 4px;
   cursor: pointer;
+  flex: 0;
 }
 
 button:hover {
   background-color: #218838;
 }
 
+/* Lista de Filmes */
 .movie-list {
   list-style: none;
   padding: 0;
 }
 
+/* Item de Filme */
 .movie-item {
   display: flex;
+  flex-wrap: nowrap; /* Impede quebra de linha */
   margin-bottom: 20px;
   align-items: center;
   background: #555;
@@ -69,33 +84,43 @@ button:hover {
   color: #ffffff;
 }
 
+/* Pôster do Filme */
 .movie-poster {
-  width: 100px;
-  height: auto;
+  width: 100px; /* Largura fixa */
+  height: 150px; /* Altura fixa */
   margin-right: 20px;
   border-radius: 4px;
+  object-fit: cover; /* Ajusta imagem ao espaço definido */
 }
 
+/* Informações do Filme */
 .movie-info {
   flex: 1;
+  min-width: 200px; /* Define largura mínima para evitar colapsos */
 }
 
+/* Título do Filme */
 .movie-title {
   margin: 0;
   font-size: 1.2em;
   color: #ffffff;
+  white-space: nowrap; /* Mantém tudo em uma linha */
+  overflow: hidden; /* Previne estouro */
+  text-overflow: ellipsis; /* Adiciona "..." */
+  width: 600px; /* Largura fixa */
 }
 
+/* Paginação */
 .pagination {
   display: flex;
   justify-content: center;
   margin: 20px 0;
-  color: #ffffff;
+  flex-wrap: wrap;
 }
 
 .page-button {
   padding: 10px 20px;
-  margin: 0 5px;
+  margin: 5px;
   border: none;
   background-color: #007bff;
   color: white;
@@ -109,4 +134,35 @@ button:hover {
 
 .page-button:hover:not(:disabled) {
   background-color: #0056b3;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .search-container {
+    flex-direction: column; /* Alinha verticalmente */
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .movie-item {
+    flex-direction: column; /* Alinha verticalmente */
+  }
+
+  .movie-poster {
+    width: 80px; /* Reduz tamanho */
+    height: 120px; /* Ajusta proporções */
+    margin-bottom: 10px;
+  }
+
+  .movie-info {
+    text-align: center; /* Centraliza informações */
+  }
+
+  .movie-title {
+    font-size: 1em; /* Reduz o tamanho da fonte */
+    width: 100%; /* Ajusta largura ao contêiner */
+  }
 }
