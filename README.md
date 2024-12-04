@@ -59,16 +59,15 @@ Este é um projeto simples para buscar e exibir informações sobre filmes usand
 
 ## Sobre a configuração do arquivo .env
 
-    O projeto está configurado para utilizar variáveis de ambiente armazenadas no arquivo .env por meio do Vite. Certifique-se de:
+O projeto está configurado para utilizar variáveis de ambiente armazenadas no arquivo .env por meio do Vite. Certifique-se de:
 
-    Colocar o arquivo .env na raiz do projeto.
+Colocar o arquivo .env na raiz do projeto.
 
-    Utilizar o prefixo VITE_ antes do nome das variáveis, como VITE_API_KEY.
+Utilizar o prefixo VITE\_ antes do nome das variáveis, como VITE_API_KEY.
 
-    No código, a chave de API é acessada dinamicamente por meio da constante: const token = import.meta.env.VITE_API_KEY;
+No código, a chave de API é acessada dinamicamente por meio da constante: const token = import.meta.env.VITE_API_KEY;
 
 ## Observações
 
-    Garanta que o arquivo .env não seja enviado para o repositório adicionando-o ao arquivo .gitignore: .env
-
-    Assim o projeto utiliza o arquivo .env para armazenar e acessar a chave de API de forma segura.
+Garanta que o arquivo .env não seja enviado para o repositório adicionando-o ao arquivo .gitignore: .env
+Assim o projeto utiliza o arquivo .env para armazenar e acessar a chave de API de forma segura.
