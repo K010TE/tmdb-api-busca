@@ -117,6 +117,7 @@ button:hover {
   flex-wrap: wrap;
 }
 
+/* Botões de Paginação */
 .page-button {
   padding: 10px 20px;
   margin: 5px;
@@ -125,14 +126,24 @@ button:hover {
   color: white;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.page-button:disabled {
-  background-color: #ccc;
+  transition: background-color 0.3s ease;
 }
 
 .page-button:hover:not(:disabled) {
   background-color: #0056b3;
+}
+
+.page-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Botão da Página Ativa */
+.page-button.active {
+  background-color: #28a745; /* Cor diferente para destacar a página ativa */
+  color: #fff;
+  border: 2px solid #218838;
+  font-weight: bold;
 }
 
 /* Responsividade */
