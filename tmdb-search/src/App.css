@@ -23,7 +23,7 @@ body {
   background: #444;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
-  overflow: hidden; /* Previne estouro do conteúdo */
+  overflow: hidden; /* Previne estouro de conteúdo */
 }
 
 /* Título Principal */
@@ -35,31 +35,30 @@ h1 {
 /* Barra de Pesquisa */
 .search-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Espaça elementos */
   margin-bottom: 20px;
-  flex-wrap: wrap; /* Ajusta elementos em telas menores */
+  width: 500px; /* Largura reduzida */
+  margin: 0 auto 20px; /* Centraliza horizontalmente */
 }
 
 input[type="text"] {
-  width: calc(100% - 110px); /* Ajusta dinamicamente com margem para o botão */
+  width: calc(100% - 130px); /* Ajusta largura com margem para o botão */
   padding: 10px;
-  margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #555;
   color: #ffffff;
-  flex: 1;
-  min-width: 200px;
 }
 
 button {
-  padding: 10px 20px;
+  width: 100px; /* Largura fixa */
+  padding: 10px;
+  margin-left: 10px; /* Adiciona espaço entre o botão e o campo */
   border: none;
   background-color: #28a745;
   color: white;
   border-radius: 4px;
   cursor: pointer;
-  flex: 0;
 }
 
 button:hover {
@@ -140,11 +139,17 @@ button:hover {
 @media (max-width: 600px) {
   .search-container {
     flex-direction: column; /* Alinha verticalmente */
+    width: 100%; /* Ajusta para ocupar toda a largura disponível */
   }
 
   input[type="text"] {
-    width: 100%;
-    margin-bottom: 10px;
+    width: 100%; /* Preenche o espaço */
+    margin-bottom: 10px; /* Espaçamento entre input e botão */
+  }
+
+  button {
+    width: 100%; /* Botão ocupa toda a largura em telas pequenas */
+    margin-left: 0; /* Remove margem lateral */
   }
 
   .movie-item {
